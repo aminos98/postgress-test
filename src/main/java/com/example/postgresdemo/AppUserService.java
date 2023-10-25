@@ -16,5 +16,13 @@ public class AppUserService {
         return appUserRepository.save(user);
     }
 
+    public void deleteByUsername(String username) {
+        AppUser user = appUserRepository.findByUsername(username);
+        if (user != null) {
+            appUserRepository.delete(user);
+        }
+    }
+
 }
+
 

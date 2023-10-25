@@ -19,5 +19,10 @@ public class AppUserController {
         return appUserService.save(user);
     }
 
+    @DeleteMapping("/{username}")
+    public void deleteUser(@PathVariable String username) {
+        appUserService.deleteByUsername(username);
+    }
+
     // Implement other CRUD endpoints
 }
