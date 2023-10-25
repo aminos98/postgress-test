@@ -3,13 +3,15 @@ package com.example.postgresdemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class AppUserController {
     @Autowired
     private AppUserServiceInterface appUserService;
 
-    @GetMapping("/{username}")
+    @GetMapping("/get/{username}")
     public AppUser findByUsername(@PathVariable String username) {
         return appUserService.findByUsername(username);
     }
@@ -19,10 +21,14 @@ public class AppUserController {
         return appUserService.save(user);
     }
 
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/delete/{username}")
     public void deleteUser(@PathVariable String username) {
         appUserService.deleteByUsername(username);
     }
 
-    // Implement other CRUD endpoints
+    @GetMapping("/getAll")
+    public List<AppUser> findAll() {
+        return appUserService.findAll();
+    }
+
 }
