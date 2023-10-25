@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class AppUserController {
     @Autowired
-    private AppUserService appUserService;
+    private AppUserServiceInterface appUserService;
 
     @GetMapping("/{username}")
     public AppUser findByUsername(@PathVariable String username) {

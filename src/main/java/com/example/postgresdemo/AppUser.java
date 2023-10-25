@@ -1,24 +1,27 @@
 package com.example.postgresdemo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+
+import java.io.Serializable;
 
 @Entity
-@Table(name = "app_user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class AppUser {
+public class AppUser implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, unique = true)
     private String username;
 
     private String email;
