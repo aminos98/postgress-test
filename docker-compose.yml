@@ -2,9 +2,7 @@ version: '2'
 
 services:
   app:
-    image: 'springbootapp'
-    build: .
-    container_name: app
+    image: 'hamzagbada18/gte3:1.0'
     ports:
       - "8080:8080"
     depends_on:
