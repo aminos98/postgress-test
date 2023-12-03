@@ -7,7 +7,7 @@ pipeline {
                 script {
                     withSonarQubeEnv('GTE3-sonar') {
                         // Use the correct syntax for Maven
-                        sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:2.16.1:sonar'
+                        sh 'mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:2.16.1:sonar'
                     }
                 }
             }
